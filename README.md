@@ -5,6 +5,7 @@ A Dockerfile I use for CTFs.
 This container is meant to work with HackTheBox, but in order to do so, is a bit _hacky_. HackTheBox requires connecting to an OpenVPN server using a given config. In order to get this to run in this docker container, you must modify this config to not use IPv6 using these 2 lines:
 
 `pull-filter ignore "ifconfig-ipv6"`
+
 `pull-filter ignore "route-ipv6"`
 
 You then need to run the container using the `byobu` command rather than `/bin/bash`. This is because when you run `openvpn <username>.ovpn`, it hangs when the connection is successful, and you must open a separate terminal session and leave the OpenVPN session running.
